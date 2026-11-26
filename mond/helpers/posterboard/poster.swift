@@ -39,70 +39,37 @@ enum pb {
         "/var/mobile/Containers/Data/PluginKitPlugin",
     ]
 
-    private static var cached_pb_container: URL?
-
     static func find_pb_container() throws -> URL {
-        if let cached = cached_pb_container, fm.fileExists(atPath: cached.path) {
-            return cached
-        }
+        for root in container_roots {
+            for child in list_containers(root) {
+                let child_url = URL(fileURLWithPath: child, isDirectory: true)
 
-        for attempt in 1...3 {
-            if let found = scan_for_pb_container() {
-                cached_pb_container = found
-                return found
+                let hidden = child_url.appendingPathComponent(".com.apple.mobile_container_manager.metadata.plist")
+                if let id = read_meta_key(at: hidden, key: "MCMMetadataIdentifier"), id == pb_bid {
+                    return child_url
+                }
+
+                let plain = child_url.appendingPathComponent("com.apple.mobile_container_manager.metadata.plist")
+                if let id = read_meta_key(at: plain, key: "MCMMetadataIdentifier"), id == pb_bid {
+                    return child_url
+                }
             }
-            print("(pb) container scan attempt \(attempt) found nothing, retrying")
-            clear_container_list_cache()
-            Thread.sleep(forTimeInterval: 0.2)
         }
 
         throw pb_error.container_404
     }
 
-    private static func scan_for_pb_container() -> URL? {
-        var scanned = 0
-        for root in container_roots {
-            for child in list_containers(root) {
-                scanned += 1
-                let child_url = URL(fileURLWithPath: child, isDirectory: true)
+    static func read_meta_key(at url: URL, key: String) -> String? {
+        let handle = grant_path(url.path, create: true)
+        guard handle >= 0 else { return nil }
+        defer { release_path_grant(handle) }
 
-                for name in [".com.apple.mobile_container_manager.metadata.plist",
-                             "com.apple.mobile_container_manager.metadata.plist"] {
-                    let meta = child_url.appendingPathComponent(name)
-                    if read_meta_key(at: meta, key: "MCMMetadataIdentifier") == pb_bid {
-                        return child_url
-                    }
-                }
-            }
-        }
-        print("(pb) scanned \(scanned) container(s), PosterBoard not identified")
-        return nil
-    }
-
-    private static func parse_meta_key(at url: URL, key: String) -> String? {
         guard let data = try? Data(contentsOf: url),
               let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] else {
             return nil
         }
+
         return plist[key] as? String
-    }
-
-    static func read_meta_key(at url: URL, key: String) -> String? {
-        // Already readable? No need to spend an exploit query on it.
-        if let value = parse_meta_key(at: url, key: key) {
-            return value
-        }
-
-        for _ in 0..<2 {
-            let handle = grant_path(url.path, create: true)
-            guard handle >= 0 else { continue }
-            defer { release_path_grant(handle) }
-
-            if let value = parse_meta_key(at: url, key: key) {
-                return value
-            }
-        }
-        return nil
     }
     
     static func poster_extensions_root(container: URL) -> URL {
