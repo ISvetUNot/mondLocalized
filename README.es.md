@@ -1,4 +1,4 @@
-<p align="center">[English](README.md) · [Русский](README.ru.md) · [Українська](README.uk.md) · [Srpski](README.sr.md) · **Español** · [Italiano](README.it.md)</p>
+<p align="center"><a href="README.md">English</a> · <a href="README.ru.md">Русский</a> · <a href="README.uk.md">Українська</a> · <a href="README.sr.md">Srpski</a> · <b>Español</b> · <a href="README.it.md">Italiano</a></p>
 
 <p align="right">
   <img align="right" height="140" src="https://github.com/rooootdev/mond/blob/main/mond.png?raw=true" style="float: right;"/>
@@ -9,7 +9,7 @@
 </div>
 
 <p align="left">
-  ¡Edita MobileGestalt en iOS 26.0 - 26.7.2 / 27.2!<br>
+  ¡Edita MobileGestalt en iOS 27.0 - 27.2.1 / 27.3 beta 1!<br>
   <a href="https://discord.gg/gw8PcRF3Jr">
     <img src="https://img.shields.io/badge/Discord-Join%20Server-7289DA.svg" alt="Discord">
   </a>
@@ -30,11 +30,9 @@
 **Compatibilidad de versiones:**
 | Versión de iOS | Compatibilidad |
 |---|---|
-| iOS ≤ 26.x | no compatible |
-| iOS 27.0 dev beta 1–4 | compatible |
-| iOS 27.0 public beta 1–2 | compatible |
-| iOS 27.0 dev beta ≥ 5 | no compatible |
-| iOS 27.0 public beta ≥ 3 | no compatible |
+| iOS 27.0 – 27.2.1 | compatible |
+| iOS 27.3 beta 1 | compatible |
+| Otras versiones | no compatible |
 
 **Planeado:**<br>
 &#45; Explorador de claves Gestalt<br>
@@ -50,6 +48,7 @@
 &#45; La interfaz de iPadOS y los tweaks relacionados pueden no funcionar y/o ¡**provocar un bootloop**!<br>
 
 **Créditos:**<br>
+&#45; [rooootdev](https://github.com/rooootdev) por su trabajo en el mond original<br>
 &#45; [forcequit](https://github.com/forcequitOS) por worse_ y bad_ query, los sandbox escapes que usa mondL<br>
 &#45; [johnny](https://github.com/0xjohnnydev) por su trabajo en la clase de bugs MCM<br>
 &#45; [jailbreak.party](https://github.com/jailbreakdotparty) por PartyUI, GestaltView y la implementación del método de respring de [neon](https://github.com/neonmodder123)<br>

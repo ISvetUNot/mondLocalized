@@ -1,4 +1,4 @@
-<p align="center">[English](README.md) · [Русский](README.ru.md) · **Українська** · [Srpski](README.sr.md) · [Español](README.es.md) · [Italiano](README.it.md)</p>
+<p align="center"><a href="README.md">English</a> · <a href="README.ru.md">Русский</a> · <b>Українська</b> · <a href="README.sr.md">Srpski</a> · <a href="README.es.md">Español</a> · <a href="README.it.md">Italiano</a></p>
 
 <p align="right">
   <img align="right" height="140" src="https://github.com/rooootdev/mond/blob/main/mond.png?raw=true" style="float: right;"/>
@@ -9,7 +9,7 @@
 </div>
 
 <p align="left">
-  Редагування MobileGestalt на iOS 26.0 – 26.7.2 / 27.2!<br>
+  Редагування MobileGestalt на iOS 27.0 – 27.2.1 / 27.3 beta 1!<br>
   <a href="https://discord.gg/gw8PcRF3Jr">
     <img src="https://img.shields.io/badge/Discord-Join%20Server-7289DA.svg" alt="Discord">
   </a>
@@ -30,11 +30,9 @@
 **Підтримка версій:**
 | Версія iOS | Підтримка |
 |---|---|
-| iOS ≤ 26.x | не підтримується |
-| iOS 27.0 dev beta 1–4 | підтримується |
-| iOS 27.0 public beta 1–2 | підтримується |
-| iOS 27.0 dev beta ≥ 5 | не підтримується |
-| iOS 27.0 public beta ≥ 3 | не підтримується |
+| iOS 27.0 – 27.2.1 | підтримується |
+| iOS 27.3 beta 1 | підтримується |
+| Інші версії | не підтримується |
 
 **Плани:**<br>
 &#45; Браузер Gestalt-ключів<br>
@@ -50,6 +48,7 @@
 &#45; Інтерфейс iPadOS і пов'язані твіки можуть не працювати та/або **викликати бутлуп**!<br>
 
 **Подяки:**<br>
+&#45; [rooootdev](https://github.com/rooootdev) за роботу над оригінальним mond<br>
 &#45; [forcequit](https://github.com/forcequitOS) за worse_ та bad_ query, сандбокс-втечі, які використовує mondL<br>
 &#45; [johnny](https://github.com/0xjohnnydev) за роботу над класом багів MCM<br>
 &#45; [jailbreak.party](https://github.com/jailbreakdotparty) за PartyUI, GestaltView та реалізацію методу respring від [neon](https://github.com/neonmodder123)<br>
