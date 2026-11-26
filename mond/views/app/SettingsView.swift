@@ -1,6 +1,6 @@
 //
 //  SettingsView.swift
-//  mond
+//  mondL
 //
 //  Created by ruter on 18.07.26.
 //
@@ -160,7 +160,7 @@ struct SettingsView: View {
                     CreditsRow(name: "johnny", role: NSLocalizedString("credit_mcm_bug_class", tableName: "SettingsView", comment: ""), profile: URL(string: "https://github.com/0xjohnnydev")!)
                     CreditsRow(name: "jailbreak.party", role: NSLocalizedString("credit_partyui_gestaltview", tableName: "SettingsView", comment: ""), profile: URL(string: "https://github.com/jailbreakdotparty")!)
                     CreditsRow(name: "SerStars", role: NSLocalizedString("credit_tendies_repo", tableName: "SettingsView", comment: ""), profile: URL(string: "https://github.com/SerStars")!)
-                    CreditsRow(name: "Hikariman", role: NSLocalizedString("credit_localization_project", tableName: "SettingsView", comment: ""), profile: URL(string: "https://github.com/ISvet228")!)
+                    CreditsRow(name: "Hikariman", role: NSLocalizedString("credit_localization_project", tableName: "SettingsView", comment: ""), profile: URL(string: "https://github.com/ISvetUNot")!)
                 } header: {
                     Label(NSLocalizedString("credits", tableName: "SettingsView", comment: ""), systemImage: "person.3.fill")
                 }

@@ -1,9 +1,9 @@
-/* Spanish localization for mond */
+/* Spanish localization for mondL */
 // Keys used in multiple files or elsewhere
 "warning" = "¡Advertencia!";
 "respring" = "Respring";
 "not_supported" = "¡No compatible!";
-"check_your_ios" = "Es posible que tu versión de iOS no sea compatible con mond.\nmond solo es compatible con iOS 26.0 - 26.7.2 / 27.2.";
+"check_your_ios" = "Es posible que tu versión de iOS no sea compatible con mondL.\nmondL solo es compatible con iOS 26.0 - 26.7.2 / 27.2.";
 "cancel" = "Cancelar";
 "done" = "Listo";
 "save_failed" = "Error al guardar";

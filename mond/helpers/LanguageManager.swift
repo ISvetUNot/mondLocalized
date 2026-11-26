@@ -1,6 +1,6 @@
 //
 //  LanguageManager.swift
-//  mond
+//  mondL
 //
 
 import Foundation

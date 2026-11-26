@@ -1,6 +1,6 @@
 //
 //  LogView.swift
-//  mond
+//  mondL
 //
 //  Created by ruter on 28.07.26.
 //

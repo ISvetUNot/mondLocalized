@@ -1,6 +1,6 @@
 //
 //  mg.swift
-//  mond
+//  mondL
 //
 //  Created by ruter on 16.07.26.
 //

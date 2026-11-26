@@ -1,9 +1,9 @@
-/* Localizzazione italiana di mond */
+/* Localizzazione italiana di mondL */
 // Chiavi utilizzate in più file o in altre parti
 "warning" = "Attenzione!";
 "respring" = "Respring";
 "not_supported" = "Non supportato!";
-"check_your_ios" = "La tua versione di iOS potrebbe non essere supportata da mond.\nMond supporta solo iOS 26.0 - 26.7.2 / 27.2.";
+"check_your_ios" = "La tua versione di iOS potrebbe non essere supportata da mondL.\nMondL supporta solo iOS 26.0 - 26.7.2 / 27.2.";
 "cancel" = "Annulla";
 "done" = "Fine";
 "save_failed" = "Salvataggio non riuscito";

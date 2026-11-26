@@ -1,6 +1,6 @@
 //
 //  mond.swift
-//  mond
+//  mondL
 //
 //  Created by ruter on 16.07.26.
 //
@@ -64,7 +64,7 @@ struct mond: App {
                 .environmentObject(state)
                 .onOpenURL { url in
                     guard is_pb_archive(url) else {
-                        print("(mond) ignoring unsupported URL: \(url.lastPathComponent)")
+                        print("(mondL) ignoring unsupported URL: \(url.lastPathComponent)")
                         return
                     }
 

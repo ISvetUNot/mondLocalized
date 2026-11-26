@@ -1,8 +1,8 @@
-/* Serbian localization for mond */
+/* Serbian localization for mondL */
 "warning" = "Упозорење!";
 "respring" = "Respring";
 "not_supported" = "Није подржано!";
-"check_your_ios" = "Vaša verzija iOS-a možda nije podržana u mond-u.\nmond podržava samo iOS 26.0 – 26.7.2 / 27.2.";
+"check_your_ios" = "Vaša verzija iOS-a možda nije podržana u mondL-u.\nmondL podržava samo iOS 26.0 – 26.7.2 / 27.2.";
 "cancel" = "Откажи";
 "done" = "Готово";
 "save_failed" = "Није сачувано";

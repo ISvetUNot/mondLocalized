@@ -1,6 +1,6 @@
 //
 //  TendiesView.swift
-//  mond
+//  mondL
 //
 //  Created by ruter on 15.08.26.
 //

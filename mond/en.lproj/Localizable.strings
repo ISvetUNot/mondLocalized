@@ -1,9 +1,9 @@
-/* English localization for mond */
+/* English localization for mondL */
 //Keys that used in multiple files or other sht
 "warning" = "Warning!";
 "respring" = "Respring";
 "not_supported" = "Not supported!";
-"check_your_ios" = "Your iOS version may not be supported by mond.\nMond only supports iOS 26.0 - 26.7.2 / 27.2.";
+"check_your_ios" = "Your iOS version may not be supported by mondL.\nMondL only supports iOS 26.0 - 26.7.2 / 27.2.";
 "cancel" = "Cancel";
 "done" = "Done";
 "save_failed" = "Save failed";

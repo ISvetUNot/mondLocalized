@@ -1,9 +1,11 @@
+<p align="center">**English** · [Русский](README.ru.md) · [Українська](README.uk.md) · [Srpski](README.sr.md) · [Español](README.es.md) · [Italiano](README.it.md)</p>
+
 <p align="right">
   <img align="right" height="140" src="https://github.com/rooootdev/mond/blob/main/mond.png?raw=true" style="float: right;"/>
 </p>
 
 <div style="width: calc(100% - 180px);">
-  <h1 style="margin-bottom: 0;">mond</h1>
+  <h1 style="margin-bottom: 0;">mondL</h1>
 </div>
 
 <p align="left">
@@ -48,7 +50,7 @@
 &#45; iPadOS UI and related tweaks may not work and/or **bootloop** you!<br>
 
 **Credits:**<br>
-&#45; [forcequit](https://github.com/forcequitOS) for worse_ and bad_ query, the sandbox escapes used by mond<br>
+&#45; [forcequit](https://github.com/forcequitOS) for worse_ and bad_ query, the sandbox escapes used by mondL<br>
 &#45; [johnny](https://github.com/0xjohnnydev) for his work on the MCM bug class<br>
 &#45; [jailbreak.party](https://github.com/jailbreakdotparty) for PartyUI, GestaltView and the implementation of [neon](https://github.com/neonmodder123)'s respring method<br>
 

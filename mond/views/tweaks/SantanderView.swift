@@ -1,6 +1,6 @@
 //
 //  SantanderView.swift
-//  mond
+//  mondL
 //
 //  Created by ruter on 14.08.26.
 //

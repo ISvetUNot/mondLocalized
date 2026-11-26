@@ -1,6 +1,6 @@
 //
 //  CEView.swift
-//  mond
+//  mondL
 //
 //  Created by ruter on 17.08.26.
 //

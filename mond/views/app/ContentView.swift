@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  mond
+//  mondL
 //
 //  Created by ruter on 17.07.26.
 //
@@ -83,7 +83,7 @@ struct ContentView: View {
                     Text(NSLocalizedString("advanced_warning", tableName: "ContentView", comment: ""))
                 }
             }
-            .navigationTitle("mond")
+            .navigationTitle("mondL")
             .tint(Color("AccentColor"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

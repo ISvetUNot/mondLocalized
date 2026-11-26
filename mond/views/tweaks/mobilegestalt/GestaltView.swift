@@ -1,6 +1,6 @@
 //
 //  GestaltView.swift
-//  mond
+//  mondL
 //
 //  Created by ruter on 11.08.26.
 //
