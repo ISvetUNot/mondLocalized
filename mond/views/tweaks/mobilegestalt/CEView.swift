@@ -14,10 +14,10 @@ enum ce_type: String, CaseIterable, Identifiable {
 
     var label: String {
         switch self {
-            case .str: "String"
-            case .int: "Integer"
-            case .bool: "Boolean"
-            case .data: "Data (Base64)"
+            case .str: NSLocalizedString("type_string", tableName: "CEView", comment: "")
+            case .int: NSLocalizedString("type_integer", tableName: "CEView", comment: "")
+            case .bool: NSLocalizedString("type_boolean", tableName: "CEView", comment: "")
+            case .data: NSLocalizedString("type_data_base64", tableName: "CEView", comment: "")
         }
     }
 
@@ -39,8 +39,7 @@ func ce_encode(_ value: Any?, as type: ce_type) -> String {
         case .int:
             (value as? NSNumber)?.stringValue ?? ""
         case .bool:
-            ((value as? NSNumber)?.boolValue == true) ? NSLocalizedString("true", tableName: "CEView", comment: "") : 
-            NSLocalizedString("false", tableName: "CEView", comment: "")
+            ((value as? NSNumber)?.boolValue == true) ? "true" : "false"
         case .data:
             (value as? Data)?.base64EncodedString() ?? ""
     }
@@ -98,8 +97,7 @@ struct CEView: View {
     var body: some View {
         List {
             if keys.isEmpty {
-                Text(search.isEmpty ? NSLocalizedString("no_cache_extra_fields", tableName: "CEView", comment: "") : 
-                NSLocalizedString("no_results", tableName: "CEView", comment: ""))
+                Text(search.isEmpty ? NSLocalizedString("no_cache_extra_fields", tableName: "CEView", comment: "") : NSLocalizedString("no_results", tableName: "CEView", comment: ""))
                     .foregroundStyle(.secondary)
             } else {
                 ForEach(keys, id: \.self) { key in
@@ -332,12 +330,12 @@ private struct CEAddSheet: View {
 
 private func ce_summary(_ value: Any?) -> String {
     switch value {
-    case let s as String: s.isEmpty ? "(empty str)" : s
+    case let s as String: s.isEmpty ? NSLocalizedString("empty_str", tableName: "CEView", comment: "") : s
     case let n as NSNumber:
         CFGetTypeID(n) == CFBooleanGetTypeID()
             ? (n.boolValue ? "true" : "false")
             : n.stringValue
-    case let d as Data: "Data (\(d.count) bytes)"
+    case let d as Data: String(format: NSLocalizedString("data_bytes", tableName: "CEView", comment: ""), d.count)
     default: String(describing: value ?? "nil")
     }
 }

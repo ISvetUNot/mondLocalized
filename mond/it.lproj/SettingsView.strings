@@ -30,8 +30,9 @@
 "credit_mcm_bug_class" = "Il suo lavoro sulla classe di bug MCM";
 "credit_partyui_gestaltview" = "PartyUI, GestaltView";
 "credit_tendies_repo" = "Repository Tendies";
-"credit_locaclization_project" = "Creazione del progetto di localizzazione";
+"credit_localization_project" = "Creazione del progetto di localizzazione";
 "credits" = "Crediti";
 "are_you_sure" = "Sei sicuro?";
 "confirm" = "Conferma";
 "confirm_respring" = "Conferma di voler eseguire un respring.";
+"credit_bad_worse_query_exploit" = "Sandbox escape bad/worse_query";

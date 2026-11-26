@@ -16,15 +16,16 @@ struct mg_tweak {
     let minv: Double?
     let info_t: InfoType?
     let info_msg: String?
+    let can_apply: (NSMutableDictionary) -> String?
     
     let r: (NSMutableDictionary) -> Bool
     let w_on: (NSMutableDictionary) -> Void
     let w_off: (NSMutableDictionary) -> Void
     
     enum InfoType {
-    case info
-    case warning
-    case error
+        case info
+        case warning
+        case error
     }
 }
 
@@ -38,13 +39,14 @@ extension mg_tweak {
         dict["CacheExtra"] = mutable
         return mutable
     }
-    
+
     init<T: Equatable>(title: String, minv: Double? = nil, key: String, value: T) {
         self.init(
             title: title,
             minv: minv,
             info_t: nil,
             info_msg: nil,
+            can_apply: { _ in nil },
             r: { dict in
                 guard let extra = dict["CacheExtra"] as? NSDictionary else { return false }
                 return extra[key] as? T == value
@@ -66,6 +68,7 @@ extension mg_tweak {
             minv: minv,
             info_t: nil,
             info_msg: nil,
+            can_apply: { _ in nil },
             r: { dict in
                 guard let extra = dict["CacheExtra"] as? NSDictionary,
                       let key = keys.first
@@ -95,6 +98,7 @@ extension mg_tweak {
             minv: minv,
             info_t: info_t,
             info_msg: info_msg,
+            can_apply: { _ in nil },
             r: { dict in
                 guard let extra = dict["CacheExtra"] as? NSDictionary else { return false }
                 return extra[key] as? T == value
@@ -116,6 +120,7 @@ extension mg_tweak {
             minv: minv,
             info_t: info_t,
             info_msg: info_msg,
+            can_apply: { _ in nil },
             r: { dict in
                 guard let extra = dict["CacheExtra"] as? NSDictionary,
                       let key = keys.first
@@ -141,7 +146,7 @@ extension mg_tweak {
 }
 
 private let region_code_key = "h63QSdBCiT/z0WU6rdQv6Q"
-private let region_info_key = "yK+xavymRGZ3xWc1tb8XDg"  
+private let region_info_key = "yK+xavymRGZ3xWc1tb8XDg"
 
 let all_tweaks: [mg_tweak] = [
     mg_tweak(title: NSLocalizedString("software.enable_dynamic_island_capability", tableName: "GestaltView", comment: ""), minv: 19.0, key: "YlEtTtHlNesRBMal1CqRaA", value: 1, info_t: .info, info_msg: NSLocalizedString("software.enable_dynamic_island_capability_info", tableName: "GestaltView", comment: "")),
@@ -163,12 +168,13 @@ let all_tweaks: [mg_tweak] = [
     mg_tweak(title: NSLocalizedString("ipados.stage_manager_support", tableName: "GestaltView", comment: ""), key: "qeaj75wk3HF4DwQ8qbIi7g", value: 1, info_t: .info, info_msg: NSLocalizedString("ipados.stage_manager_support_info", tableName: "GestaltView", comment: "")),
     mg_tweak(title: NSLocalizedString("internal.apple_internal_install", tableName: "GestaltView", comment: ""), key: "EqrsVvjcYDdxHBiQmGhAWw", value: 1, info_t: .warning, info_msg: NSLocalizedString("internal.apple_internal_install_info", tableName: "GestaltView", comment: "")),
     mg_tweak(title: NSLocalizedString("internal.internal_storage_view", tableName: "GestaltView", comment: ""), key: "LBJfwOEzExRxzlAnSuI7eg", value: 1, info_t: .warning, info_msg: NSLocalizedString("internal.internal_storage_view_info", tableName: "GestaltView", comment: "")),
-
+    
     mg_tweak(
         title: NSLocalizedString("eligibility.disable_region_restrictions", tableName: "GestaltView", comment: ""),
         minv: nil,
         info_t: .info,
         info_msg: NSLocalizedString("eligibility.disable_region_restrictions_info", tableName: "GestaltView", comment: ""),
+        can_apply: { _ in nil },
         r: { dict in
             guard let cache_extra = dict["CacheExtra"] as? NSMutableDictionary else { return false }
             return cache_extra[region_code_key] as? String == "LL" &&
@@ -192,6 +198,7 @@ let all_tweaks: [mg_tweak] = [
         minv: 18.1,
         info_t: .info,
         info_msg: NSLocalizedString("eligibility.apple_intelligence_info", tableName: "GestaltView", comment: ""),
+        can_apply: { _ in nil },
         r: { dict in
             guard let cache_extra = dict["CacheExtra"] as? NSMutableDictionary else { return false }
             return (cache_extra["A62OafQ85EJAiiqKn4agtg"] as? Int) == 1
@@ -201,7 +208,7 @@ let all_tweaks: [mg_tweak] = [
             cache_extra["A62OafQ85EJAiiqKn4agtg"] = 1
             AlertinatorLocalized.shared.alert(
                 title: NSLocalizedString("eligibility.apple_intelligence_spoof", tableName: "GestaltView", comment: ""),
-                body: NSLocalizedString("eligibility.apple_intelligence_spoof_info", tableName: "GestaltView", comment: "")
+                body: NSLocalizedString("eligibility.apple_intelligence_info", tableName: "GestaltView", comment: "")
             )
         },
         w_off: { dict in
@@ -215,6 +222,15 @@ let all_tweaks: [mg_tweak] = [
         minv: nil,
         info_t: .warning,
         info_msg: NSLocalizedString("ipados.ipados_mode_info", tableName: "GestaltView", comment: ""),
+        can_apply: { dict in
+            guard let cache_data = dict["CacheData"] as? NSMutableData else {
+                return NSLocalizedString("error.cache_data_missing", tableName: "GestaltView", comment: "")
+            }
+            guard cache_data_safe_offset("mtrAoWJ3gsq+I90ZnQ0vQw", in: cache_data) != nil else {
+                return NSLocalizedString("error.ipados_offset_missing", tableName: "GestaltView", comment: "")
+            }
+            return nil
+        },
         r: { dict in
             guard let cache_extra = dict["CacheExtra"] as? NSMutableDictionary else { return false }
             let values: [String: Int] = [
@@ -266,6 +282,18 @@ let all_tweaks: [mg_tweak] = [
         minv: nil,
         info_t: nil,
         info_msg: nil,
+        can_apply: { dict in
+            guard let cache_data = dict["CacheData"] as? NSMutableData else {
+                return NSLocalizedString("error.cache_data_missing", tableName: "GestaltView", comment: "")
+            }
+            let keys = ["EqrsVvjcYDdxHBiQmGhAWw", "Oji6HRoPi7rH7HPdWVakuw", "LBJfwOEzExRxzlAnSuI7eg"]
+            for key in keys {
+                if cache_data_safe_offset(key, in: cache_data) == nil {
+                    return String(format: NSLocalizedString("error.internal_offset_missing", tableName: "GestaltView", comment: ""), key)
+                }
+            }
+            return nil
+        },
         r: { dict in
             guard let cache_data = dict["CacheData"] as? NSMutableData,
                   let off = cache_data_safe_offset("EqrsVvjcYDdxHBiQmGhAWw", in: cache_data) else { return false }
@@ -413,6 +441,8 @@ var selected_st_value: Int {
             return 2868
         case "air":
             return 2736
+        case "duo":
+            return 2088
         case "x":
             return 2436
         default:
@@ -428,7 +458,8 @@ private var st_to_sel: [Int: String] {
         2976: "15pm",
         2622: "16p",
         2868: "16pm",
-        2736: "air"
+        2736: "air",
+        2088: "duo",
     ]
 }
 
@@ -464,7 +495,7 @@ func mg_load() {
                 try FileManager.default.copyItem(at: mg_url_now, to: mg_url_saved)
             }
 
-            // get original gestalt values
+            // get og gestalt values
             let mg_saved_dict = try NSMutableDictionary(contentsOf: mg_url_saved, error: ())
             let og_cache_extra = mg_saved_dict["CacheExtra"] as? NSMutableDictionary ?? NSMutableDictionary()
             let og_artwork = og_cache_extra["oPeik/9e8lQWMszEjbPzng"] as? NSMutableDictionary ?? NSMutableDictionary()
@@ -525,11 +556,11 @@ func mg_apply() {
         let data = try PropertyListSerialization.data(fromPropertyList: mg_dict_now, format: .xml, options: 0)
 
         try mg_write(data)
-        mg_dict_now = NSMutableDictionary()
+        mg_reload()
         enable_device_name = false
 
         print("(mg) successfully overwrote mobilegestalt!")
-        AlertinatorLocalized.shared.alert(title: NSLocalizedString("warning.successfully_applyed_mg", tableName: "GestaltView", comment: ""), body: NSLocalizedString("warning.respring_to_take_effect", tableName: "GestaltView", comment: ""), actionLabel: NSLocalizedString("respring", comment:""), action: {
+        AlertinatorLocalized.shared.alert(title: NSLocalizedString("warning.successfully_applyed_mg", tableName: "GestaltView", comment: ""), body: NSLocalizedString("warning.respring_to_take_effect", tableName: "GestaltView", comment: ""), actionLabel: NSLocalizedString("respring", comment: ""), action: {
             state.respring()
         })
     } catch {
@@ -543,6 +574,7 @@ func mg_revert() {
         let backup_url = URL(fileURLWithPath: AppPaths.backups).appendingPathComponent("SavedGestalt.plist")
         let backup_data = try Data(contentsOf: backup_url)
         try mg_write(backup_data)
+        mg_reload()
 
         print("(mg) successfully reverted mobilegestalt!)")
         AlertinatorLocalized.shared.alert(title: NSLocalizedString("warning.successfully_reverted_mg", tableName: "GestaltView", comment: ""), body: NSLocalizedString("warning.reboot_to_take_effect", tableName: "GestaltView", comment: ""))
@@ -551,6 +583,13 @@ func mg_revert() {
         AlertinatorLocalized.shared.alert(title: NSLocalizedString("warning.failed_to_revert_mg", tableName: "GestaltView", comment: ""), body: NSLocalizedString("warning.check_logs", tableName: "GestaltView", comment: ""))
     }
 }
+
+func mg_reload() {
+    guard let data = try? Data(contentsOf: URL(fileURLWithPath: TweakPaths.gestalt)),
+          let dict = try? PropertyListSerialization.propertyList(from: data, format: nil) as? NSMutableDictionary else { return }
+    mg_dict_now = dict
+}
+
 private enum mg_write_err: Error {
     case open(errno: Int32)
     case truncate(errno: Int32)
@@ -663,6 +702,7 @@ func mg_write(_ data: Data, to path: String) throws {
     }
 }
 
+
 func mg_write(_ data: Data) throws {
     let path = TweakPaths.gestalt
 
@@ -692,6 +732,10 @@ func mg_tweak_binding(_ tweak: mg_tweak) -> Binding<Bool> {
             tweak.is_on(in: mg_dict_now)
         },
         set: { enabled in
+            if let error = tweak.can_apply(mg_dict_now) {
+                AlertinatorLocalized.shared.alert(title: String(format: NSLocalizedString("error.cannot_apply_title", tableName: "GestaltView", comment: ""), tweak.title), body: error)
+                return
+            }
             if enabled {
                 tweak.apply_on(to: mg_dict_now)
             } else {
@@ -708,9 +752,9 @@ enum mg_view_err: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
             case .missing_artwork_st:
-                return "Failed to get ArtworkDeviceSubType!"
+                return NSLocalizedString("error.failed_artwork_subtype", tableName: "GestaltView", comment: "")
             case .missing_artwork_device_name:
-                return "Failed to get ArtworkDeviceProductDescription!"
+                return NSLocalizedString("error.failed_artwork_device_name", tableName: "GestaltView", comment: "")
         }
     }
 }

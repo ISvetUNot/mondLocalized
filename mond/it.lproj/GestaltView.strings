@@ -2,18 +2,15 @@
 "menu_warning.mg_empty" = "Il tuo MobileGestalt.plist sembra essere vuoto.";
 "menu_warning.mg_invalid" = "Il tuo MobileGestalt.plist sembra non essere valido.";
 "menu_warning.bootloop" = "Riavviare ora potrebbe causare un bootloop. Prova a premere «Annulla tweak». Se gli avvisi non scompaiono, sei nei guai.";
-
 "menu.apply_tweaks" = "Applica tweak";
 "menu.revert_tweaks" = "Annulla tweak";
 "menu.tweak_warning" = "**ATTENZIONE:** Questi tweak possono danneggiare le funzioni del dispositivo o causare un softbrick se usati impropriamente!";
-
 "artwork.original_subtype_format" = "Originale ";
 "artwork.disable_dynamic_island" = "Disabilita Dynamic Island";
 "artwork.subtype" = "Sottotipo";
 "artwork.custom_device_name" = "Nome dispositivo personalizzato";
 "artwork.device_name" = "Nome dispositivo";
 "artwork.device_artwork" = "Immagine dispositivo";
-
 "software.enable_dynamic_island_capability" = "Abilita il supporto Dynamic Island";
 "software.enable_dynamic_island_capability_info" = "Un metodo alternativo per abilitare Dynamic Island, usato da Nugget.";
 "software.always_on_display" = "Always-On Display";
@@ -31,7 +28,6 @@
 "software.disable_liquid_glass_low_performance_mode" = "Disabilita modalità a basse prestazioni di Liquid Glass";
 "software.disable_liquid_glass_low_performance_mode_info" = "Non usarlo contemporaneamente all'opzione sopra.";
 "software.software_oriented_features" = "Funzioni software";
-
 "hardware.camera_control_settings" = "Impostazioni Camera Control di iPhone 16";
 "hardware.camera_control_settings_info" = "Espone le impostazioni di Camera Control e le relative funzioni.";
 "hardware.action_button_settings" = "Impostazioni del pulsante Azione";
@@ -42,7 +38,6 @@
 "hardware.tap_to_wake_info" = "Pensato per dispositivi come iPhone SE, dove il risveglio tramite tocco non è altrimenti disponibile.";
 "hardware.pulse_width_modulation" = "Modulazione di larghezza d'impulso";
 "hardware.hardware_oriented_features" = "Funzioni hardware";
-
 "eligibility.security_research_device_mode" = "Modalità dispositivo per ricerca sulla sicurezza";
 "eligibility.security_research_device_mode_info" = "Contrassegna il dispositivo come dispositivo Apple per la ricerca sulla sicurezza.";
 "eligibility.disable_region_restrictions" = "Disabilita restrizioni regionali";
@@ -57,7 +52,6 @@
 "eligibility.apple_intelligence_spoof" = "Spoof Apple Intelligence";
 "eligibility.apple_intelligence_spoof_info" = "Come usare questo tweak:\n1. Esegui lo spoof del modello successivo al primo modello supportato da Apple Intelligence.\n2. Torna al tuo modello.\n3. Esegui lo spoof del modello finale e dovresti vedere l'icona Apple Intelligence nelle Impostazioni.\n4. Collega l'iPhone all'alimentazione e lascia aperta la scheda Impostazioni > Spazio iPhone per circa 1 ora.\n\nNOTA: non tornare indietro con lo spoof.";
 "eligibility.eligibility" = "Idoneità";
-
 "ipados.allow_ipados_apps" = "Consenti app iPad";
 "ipados.allow_ipados_apps_info" = "Consente di installare app iPad su iPhone.";
 "ipados.apple_pencil_settings" = "Impostazioni Apple Pencil";
@@ -67,14 +61,12 @@
 "ipados.ipados_mode" = "Abilita modalità iPadOS";
 "ipados.ipados_mode_info" = "Funzione sperimentale e ad alto rischio; è un tweak molto pericoloso! Se usi un codice alfanumerico, NON USARE QUESTO TWEAK! Non disattivare «Mostra Dock in Stage Manager», altrimenti il dispositivo entrerà in BOOTLOOP ruotando in orizzontale! Alcuni utenti hanno anche segnalato che abilitare l'interfaccia iPadOS e poi toccare Stage Manager può portare il dispositivo in modalità di recupero, anche quando l'interfaccia non sembra cambiata. Prima che ciò accada, la barra di ricerca delle Impostazioni potrebbe spostarsi in alto. Tenendo presenti questi tre aspetti, potresti riscontrare instabilità generale o altri problemi importanti, come la scomparsa casuale dei dati delle app. Ma immagino che alcune divertenti funzioni multitasking che rendono comunque il dispositivo relativamente inutilizzabile siano fantastiche? In ogni caso, non sono qui per dirti come usare il tuo dispositivo.";
 "ipados.ipados_features" = "Funzioni iPadOS";
-
 "internal.internal_storage_view" = "Visualizzazione spazio interno";
 "internal.internal_storage_view_info" = "Mostra i file interni nelle impostazioni Spazio iPhone; può essere pericoloso su alcuni iPad.";
 "internal.internal_features" = "Funzioni interne";
 "internal.apple_internal_install" = "Installazione interna Apple";
 "internal.apple_internal_install_info" = "Abilita funzioni interne come Metal HUD; alcuni servizi potrebbero comportarsi in modo anomalo.";
 "internal.internal" = "Interno";
-
 "warning.failed_to_load_mg" = "Impossibile caricare il MobileGestalt corrente!";
 "warning.restart_and_check_logs" = "Riavvia l'app e riprova. Controlla i log per informazioni più dettagliate.";
 "warning.successfully_applyed_mg" = "Tweak Gestalt applicati correttamente!";
@@ -84,3 +76,10 @@
 "warning.reboot_to_take_effect" = "Riavvia il dispositivo affinché le modifiche abbiano effetto.";
 "warning.failed_to_revert_mg" = "Impossibile ripristinare MobileGestalt!";
 "warning.check_logs" = "Controlla i log per informazioni sull'errore.";
+"warning_label" = "Avviso";
+"error.cache_data_missing" = "CacheData manca da MobileGestalt.";
+"error.ipados_offset_missing" = "Offset di CacheData non trovato per questo dispositivo e versione di iOS. La patch binaria della modalità iPadOS non è supportata.";
+"error.internal_offset_missing" = "Offset di CacheData non trovato per %@. La patch binaria delle funzioni interne non è supportata su questo dispositivo e versione di iOS.";
+"error.cannot_apply_title" = "Impossibile applicare %@";
+"error.failed_artwork_subtype" = "Impossibile ottenere ArtworkDeviceSubType!";
+"error.failed_artwork_device_name" = "Impossibile ottenere ArtworkDeviceProductDescription!";

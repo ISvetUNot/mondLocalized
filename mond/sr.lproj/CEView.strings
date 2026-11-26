@@ -16,3 +16,9 @@
 "add" = "Додај";
 "key_cant_be_empty" = "Кључ не може бити празан";
 "key_already_exist" = "Кључ већ постоји";
+"type_string" = "Tekst";
+"type_integer" = "Ceo broj";
+"type_boolean" = "Logička";
+"type_data_base64" = "Podaci (Base64)";
+"empty_str" = "(prazan tekst)";
+"data_bytes" = "Podaci (%ld bajtova)";

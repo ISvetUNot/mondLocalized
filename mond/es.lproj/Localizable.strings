@@ -3,8 +3,10 @@
 "warning" = "¡Advertencia!";
 "respring" = "Respring";
 "not_supported" = "¡No compatible!";
-"check_your_ios" = "Es posible que tu versión de iOS no sea compatible con mond.\nMond solo es compatible con iOS 27.0 developer beta 1 - 4.";
+"check_your_ios" = "Es posible que tu versión de iOS no sea compatible con mond.\nmond solo es compatible con iOS 26.0 - 26.7.2 / 27.2.";
 "cancel" = "Cancelar";
 "done" = "Listo";
 "save_failed" = "Error al guardar";
 "information" = "Información";
+"ok" = "OK";
+

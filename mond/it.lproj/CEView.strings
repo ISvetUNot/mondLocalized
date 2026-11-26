@@ -16,3 +16,9 @@
 "add" = "Aggiungi";
 "key_cant_be_empty" = "La chiave non può essere vuota";
 "key_already_exist" = "La chiave esiste già";
+"type_string" = "Stringa";
+"type_integer" = "Intero";
+"type_boolean" = "Booleano";
+"type_data_base64" = "Dati (Base64)";
+"empty_str" = "(stringa vuota)";
+"data_bytes" = "Dati (%ld byte)";

@@ -3,3 +3,4 @@
 "only_mobilegestalt_available" = "Only MobileGestalt is available when method is set to cmg.";
 "advanced" = "Advanced";
 "advanced_warning" = "Only use these Tweaks if you know what you're doing.\nYou could break something irreversibly.";
+"cache_extra_fields" = "CacheExtra Fields";

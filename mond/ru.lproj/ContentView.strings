@@ -3,3 +3,4 @@
 "only_mobilegestalt_available" = "При выборе метода cmg доступен только MobileGestalt.";
 "advanced" = "Для Опытных";
 "advanced_warning" = "Используйте эти настройки, только если знаете, что делаете.\nВы можете что-то необратимо сломать.";
+"cache_extra_fields" = "Поля CacheExtra";

@@ -11,7 +11,7 @@ public class AlertinatorLocalized {
         Task { @MainActor in
             alertController = UIAlertController(title: title,message: body,preferredStyle: .alert)
             if showCancel {
-                alertController?.addAction(.init(title: "OK", style: .cancel))
+                alertController?.addAction(.init(title: NSLocalizedString("ok", comment: ""), style: .cancel))
             }
             alertController?.view.tintColor = UIColor(named: "AccentColor")
             self.present(alertController!)
@@ -52,7 +52,7 @@ public class AlertinatorLocalized {
                     }
                 )
             }
-            alertController?.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            alertController?.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default) { _ in
                     let field = self.alertController?.textFields?.first
 
                     Task {

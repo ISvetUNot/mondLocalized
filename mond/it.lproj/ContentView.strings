@@ -3,3 +3,4 @@
 "only_mobilegestalt_available" = "Quando è selezionato il metodo cmg, è disponibile solo MobileGestalt.";
 "advanced" = "Avanzate";
 "advanced_warning" = "Usa queste impostazioni solo se sai cosa stai facendo.\nPotresti danneggiare qualcosa in modo irreversibile.";
+"cache_extra_fields" = "Campi CacheExtra";

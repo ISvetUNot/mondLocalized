@@ -16,3 +16,9 @@
 "add" = "Añadir";
 "key_cant_be_empty" = "La clave no puede estar vacía";
 "key_already_exist" = "La clave ya existe";
+"type_string" = "Cadena";
+"type_integer" = "Entero";
+"type_boolean" = "Booleano";
+"type_data_base64" = "Datos (Base64)";
+"empty_str" = "(cadena vacía)";
+"data_bytes" = "Datos (%ld bytes)";

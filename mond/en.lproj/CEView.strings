@@ -16,3 +16,9 @@
 "add" = "Add";
 "key_cant_be_empty" = "Key cannot be empty";
 "key_already_exist" = "Key already exists";
+"type_string" = "String";
+"type_integer" = "Integer";
+"type_boolean" = "Boolean";
+"type_data_base64" = "Data (Base64)";
+"empty_str" = "(empty str)";
+"data_bytes" = "Data (%ld bytes)";

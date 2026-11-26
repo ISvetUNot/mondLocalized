@@ -3,3 +3,4 @@
 "only_mobilegestalt_available" = "Када је метод подешен на cmg, доступан је само MobileGestalt.";
 "advanced" = "Напредно";
 "advanced_warning" = "Користите ове измене само ако знате шта радите.\nМожете неповратно покварити нешто.";
+"cache_extra_fields" = "CacheExtra polja";

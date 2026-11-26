@@ -30,8 +30,9 @@
 "credit_mcm_bug_class" = "Его работа над классом ошибок MCM";
 "credit_partyui_gestaltview" = "PartyUI, GestaltView";
 "credit_tendies_repo" = "Репозиторий Tendies";
-"credit_locaclization_project" = "Создание проекта локализации";
+"credit_localization_project" = "Создание проекта локализации";
 "credits" = "Авторы";
 "are_you_sure" = "Вы уверены?";
 "confirm" = "Подтвердить";
 "confirm_respring" = "Подтвердите, что хотите выполнить респринг.";
+"credit_bad_worse_query_exploit" = "Побег из песочницы bad/worse_query";

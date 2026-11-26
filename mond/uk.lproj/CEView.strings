@@ -16,3 +16,9 @@
 "add" = "Додати";
 "key_cant_be_empty" = "Ключ не може бути порожнім";
 "key_already_exist" = "Ключ уже існує";
+"type_string" = "Рядок";
+"type_integer" = "Ціле число";
+"type_boolean" = "Логічне";
+"type_data_base64" = "Дані (Base64)";
+"empty_str" = "(порожній рядок)";
+"data_bytes" = "Дані (%ld байт)";

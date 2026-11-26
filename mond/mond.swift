@@ -25,10 +25,16 @@ var path: String {
     return url.path
 }
 
+func getAppGroup() -> String {
+    if let task = SecTaskCreateFromSelf(nil), let groups = SecTaskCopyValueForEntitlement(task, "com.apple.security.application-groups" as CFString, nil) {
+        return (groups as? [String])?.first ?? "group.com.roooot.mondapp"
+    }
+    return "group.com.roooot.mondapp"
+}
+
 @main
 struct mond: App {
     @StateObject private var state = AppState.shared
-    @StateObject private var language_manager = LanguageManager.shared
     
     @AppStorage("ka_on") private var ka_on = true
     
@@ -39,7 +45,7 @@ struct mond: App {
         }
         
         UserDefaults.standard.register(defaults: [
-            "method": "bad_query",
+            "method": "worse_query",
             "atomic_write": true
         ])
         if UserDefaults.standard.bool(forKey: "ka_on") {
@@ -66,9 +72,11 @@ struct mond: App {
                 }
                 .onAppear() {
                     if !is_supported() {
-                        AlertinatorLocalized.shared.alert(title: NSLocalizedString("not_supported", comment:""), body: NSLocalizedString("check_your_ios", comment:""))
+                        AlertinatorLocalized.shared.alert(title: NSLocalizedString("not_supported", comment: ""), body: NSLocalizedString("check_your_ios", comment: ""))
                     }
                     
+                    worse_query_group = getAppGroup()
+                    print("(wq) Using app group: \(worse_query_group)")
                     grant_all(state: state)
                 }
                 .overlay {

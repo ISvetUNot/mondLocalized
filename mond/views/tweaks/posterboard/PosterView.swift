@@ -61,7 +61,7 @@ struct PosterView: View {
                     }
                     .disabled(busy)
                 } footer: {
-                    Text(try! AttributedString(markdown:NSLocalizedString("tendies_warning", tableName: "PosterView", comment: "")))
+                    Text("Import up to 5 wallpaper packs.\n**NOTE:** Importing more than 5 tendies at once is not a good idea and importing more than 15 is a TERRIBLE idea. Dont say I didnt warn you.")
                 }
 
                 if !state.poster_files.isEmpty {
@@ -153,7 +153,7 @@ struct PosterView: View {
             busy = false
             AlertinatorLocalized.shared.alert(
                 title: NSLocalizedString("poster_reset_failed_title", tableName: "PosterView", comment: ""),
-                body: NSLocalizedString("poster_reset_failed_body", tableName: "PosterView", comment: "")
+                body: NSLocalizedString("poster_apply_failed_body", tableName: "PosterView", comment: "")
             )
         }
     }

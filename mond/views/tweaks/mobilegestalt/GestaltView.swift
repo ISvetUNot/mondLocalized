@@ -25,7 +25,6 @@ struct TweakToggle: View {
             PlainToggle(
                 text: tweak.title,
                 infoType: tweak.info_t?.party_info_type ?? .none,
-                infoTitle: NSLocalizedString("information", comment: ""),
                 infoMessage: tweak.info_msg ?? "",
                 minSupportedVersion: tweak.minv ?? 0.0,
                 isOn: mg_tweak_binding(tweak)
@@ -54,6 +53,7 @@ struct GestaltView: View {
     @State private var enable_device_name: Bool = false
     @State private var mg_device_name: String = ""
     @State private var product_type: String = ""
+    @State private var tweak_version: Int = 0
 
     var body: some View {
         NavigationStack {
@@ -61,14 +61,14 @@ struct GestaltView: View {
                 if !is_valid || is_empty {
                     Section {
                         if is_empty {
-                            PlainAlert(title: NSLocalizedString("menu_warning.do_not_reboot",tableName: "GestaltView", comment: ""), icon: "exclamationmark.triangle.fill", text: NSLocalizedString("menu_warning.mg_empty_warning", tableName: "GestaltView", comment: ""), color: Color.yellow)
+                            PlainAlert(title: NSLocalizedString("menu_warning.do_not_reboot", tableName: "GestaltView", comment: ""), icon: "exclamationmark.triangle.fill", text: NSLocalizedString("menu_warning.mg_empty", tableName: "GestaltView", comment: ""), color: Color.yellow)
                         }
 
                         if !is_valid {
-                            PlainAlert(title: NSLocalizedString("menu_warning.do_not_reboot",tableName: "GestaltView", comment: ""), icon: "exclamationmark.triangle.fill", text: NSLocalizedString("menu_warning.mg_invalid_warning", tableName: "GestaltView", comment: ""), color: Color.yellow)
+                            PlainAlert(title: NSLocalizedString("menu_warning.do_not_reboot", tableName: "GestaltView", comment: ""), icon: "exclamationmark.triangle.fill", text: NSLocalizedString("menu_warning.mg_invalid", tableName: "GestaltView", comment: ""), color: Color.yellow)
                         }
                     } header: {
-                        Label(NSLocalizedString("warning", comment: ""), systemImage: "exclamationmark.triangle")
+                        Label(NSLocalizedString("warning_label", tableName: "GestaltView", comment: ""), systemImage: "exclamationmark.triangle")
                     } footer: {
                         Text(NSLocalizedString("menu_warning.bootloop", tableName: "GestaltView", comment: ""))
                     }
@@ -78,12 +78,14 @@ struct GestaltView: View {
                     Button {
                         mg_apply_ui_state(selected_st, enable_device_name, mg_device_name, product_type)
                         mg_apply()
+                        tweak_version += 1
                     } label: {
                         Text(NSLocalizedString("menu.apply_tweaks", tableName: "GestaltView", comment: ""))
                     }
 
                     Button {
                         mg_revert()
+                        tweak_version += 1
                     } label: {
                         Text(NSLocalizedString("menu.revert_tweaks", tableName: "GestaltView", comment: ""))
                     }
@@ -99,7 +101,7 @@ struct GestaltView: View {
 
                 Section {
                     Picker(selection: $selected_st) {
-                        Text("\(NSLocalizedString("Original", tableName: "SettingsView", comment: "")) (\(og_st))").tag("og")
+                        Text("\(NSLocalizedString("artwork.original_subtype_format", tableName: "GestaltView", comment: ""))(\(og_st))").tag("og")
 
                         if is_device_good() {
                             Text(NSLocalizedString("artwork.disable_dynamic_island", tableName: "GestaltView", comment: "")).tag("no_dynamic_island")
@@ -116,6 +118,10 @@ struct GestaltView: View {
 
                         if doubleSystemVersion() >= 26.0 {
                             Text("iPhone Air").tag("air")
+                        }
+                        
+                        if doubleSystemVersion() >= 27.0 {
+                            Text("iPhone Duo").tag("duo")
                         }
 
                         if has_home_button() {
@@ -192,6 +198,11 @@ struct GestaltView: View {
                                     Text("iPhone 17 Pro Max").tag("iPhone18,2")
                                     Text("iPhone Air").tag("iPhone18,4")
                                 }
+                                if doubleSystemVersion() >= 27.0 {
+                                    Text("iPhone 18 Pro").tag("iPhone19,2")
+                                    Text("iPhone 18 Pro Max").tag("iPhone19,7")
+                                    Text("iPhone Duo").tag("iPhone19,4")
+                                }
                             }
                         }
 
@@ -211,8 +222,6 @@ struct GestaltView: View {
                 }
 
                 Section {
-                    let cache_extra = mg_dict_now["CacheExtra"] as? NSMutableDictionary
-
                     TweakToggle(title: NSLocalizedString("ipados.allow_ipados_apps", tableName: "GestaltView", comment: ""))
                     TweakToggle(title: NSLocalizedString("ipados.apple_pencil_settings", tableName: "GestaltView", comment: ""))
 
@@ -221,7 +230,10 @@ struct GestaltView: View {
                     }
 
                     TweakToggle(title: NSLocalizedString("ipados.ipados_mode", tableName: "GestaltView", comment: ""))
-                        .disabled(cache_extra?["+3Uf0Pm5F8Xy7Onyvko0vA"] as? String != "iPhone")
+                        .disabled({
+                            let cache_extra = mg_dict_now["CacheExtra"] as? [String: Any]
+                            return cache_extra?["+3Uf0Pm5F8Xy7Onyvko0vA"] as? String != "iPhone"
+                        }())
                 } header: {
                     Label(NSLocalizedString("ipados.ipados_features", tableName: "GestaltView", comment: ""), systemImage: "ipad")
                 }

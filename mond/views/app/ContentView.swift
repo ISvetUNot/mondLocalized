@@ -10,7 +10,6 @@ import PartyUI
 
 struct ContentView: View {
     @EnvironmentObject var state: AppState
-    @AppStorage("method") private var method: String = "bad_query"
     @AppStorage("ignore_failure") private var ignore_failure = false
     
     @State private var is_valid: Bool = false
@@ -23,7 +22,7 @@ struct ContentView: View {
                     LogView()
                         .modifier(TerminalPlatter())
                 } header: {
-                    Label(NSLocalizedString("logs", tableName: "ContentView", comment: "Logs section header"), systemImage: "apple.terminal")
+                    Label(NSLocalizedString("logs", tableName: "ContentView", comment: ""), systemImage: "apple.terminal")
                 }
                 
                 Section {
@@ -53,7 +52,7 @@ struct ContentView: View {
                             }
                         }
                     }
-                    .disabled((method == "cmg" || state.pb_granted != true) && !ignore_failure)
+                    .disabled((state.pb_granted != true) && !ignore_failure)
                     
                     NavigationLink {
                         SantanderView()
@@ -67,20 +66,16 @@ struct ContentView: View {
                             }
                         }
                     }
-                    .disabled((method == "cmg" || state.apps_granted != true) && !ignore_failure)
+                    .disabled((state.apps_granted != true) && !ignore_failure)
                 } header: {
-                    Label(NSLocalizedString("tweaks", tableName: "ContentView", comment: "Tweaks section header"), systemImage: "paintbrush")
-                } footer: {
-                    if method == "cmg" {
-                         Text(NSLocalizedString("only_mobilegestalt_available", tableName: "ContentView", comment: ""))
-                    }
+                    Label(NSLocalizedString("tweaks", tableName: "ContentView", comment: ""), systemImage: "paintbrush")
                 }
                 
                 Section {
                     NavigationLink {
                         CEView()
                     } label: {
-                        Text("CacheExtra Fields")
+                        Text(NSLocalizedString("cache_extra_fields", tableName: "ContentView", comment: ""))
                     }
                 } header: {
                     Label(NSLocalizedString("advanced", tableName: "ContentView", comment: ""), systemImage: "wrench.and.screwdriver")

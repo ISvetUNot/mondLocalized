@@ -5,7 +5,6 @@
 //  Created by ruter on 28.07.26.
 //
 
-import Foundation
 import SwiftUI
 import PartyUI
 
@@ -48,7 +47,7 @@ struct LogView: View {
                     Button {
                         UIPasteboard.general.string = log
                     } label: {
-                        Label(NSLocalizedString("copy_output", tableName: "LogsView", comment: "Copy output action"), systemImage: "doc.on.doc")
+                        Label(NSLocalizedString("copy_output", tableName: "LogsView", comment: ""), systemImage: "doc.on.doc")
                     }
                 }
             }

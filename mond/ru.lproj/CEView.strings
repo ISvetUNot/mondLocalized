@@ -16,3 +16,9 @@
 "add" = "Добавить";
 "key_cant_be_empty" = "Ключ не может быть пустым";
 "key_already_exist" = "Ключ уже существует";
+"type_string" = "Строка";
+"type_integer" = "Целое число";
+"type_boolean" = "Логическое";
+"type_data_base64" = "Данные (Base64)";
+"empty_str" = "(пустая строка)";
+"data_bytes" = "Данные (%ld байт)";

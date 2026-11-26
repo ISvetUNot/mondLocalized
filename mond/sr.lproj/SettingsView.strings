@@ -30,8 +30,9 @@
 "credit_mcm_bug_class" = "Његов рад на MCM bug класи";
 "credit_partyui_gestaltview" = "PartyUI, GestaltView";
 "credit_tendies_repo" = "Tendies репозиторијум";
-"credit_locaclization_project" = "Пројекат локализације";
+"credit_localization_project" = "Пројекат локализације";
 "credits" = "Заслуге";
 "are_you_sure" = "Да ли сте сигурни?";
 "confirm" = "Потврди";
 "confirm_respring" = "Потврдите да желите да урадите respring.";
+"credit_bad_worse_query_exploit" = "Bekstvo iz sandbox-a bad/worse_query";
